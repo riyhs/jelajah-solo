@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
+import 'package:tempat_wisata/source.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,13 +22,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      leading: const Icon(Icons.arrow_back_ios),
       title: const Text("Draggable Home"),
-      actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-      ],
       headerWidget: headerWidget(context),
-      headerBottomBar: headerBottomBarWidget(),
       body: [
         listView(),
       ],
@@ -35,27 +33,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Row headerBottomBarWidget() {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: const [
-        Icon(
-          Icons.settings,
-          color: Colors.white,
-        ),
-      ],
-    );
-  }
-
   Widget headerWidget(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.blueAccent,
         image: DecorationImage(
-            image: AssetImage("assets/images/cloudySky2.jpg"),
-            fit: BoxFit.cover),
+            fit: BoxFit.cover,
+            colorFilter:
+            ColorFilter.mode(Colors.black45, BlendMode.darken),
+            image: AssetImage("assets/images/cloudySky.jpg"),
+        ),
       ),
       alignment: Alignment.centerLeft,
       child: Padding(
@@ -65,7 +52,7 @@ class HomePage extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headline4!
-              .copyWith(color: Colors.black),
+              .copyWith(color: Colors.white),
         ),
       ),
     );
@@ -75,18 +62,117 @@ class HomePage extends StatelessWidget {
     return ListView.builder(
       padding: const EdgeInsets.only(top: 0),
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 20,
+      itemCount: tourismPlaceList.length,
       shrinkWrap: true,
-      itemBuilder: (context, index) => Card(
-        color: Colors.white70,
-        child: ListTile(
-          leading: CircleAvatar(
-            child: Text("$index"),
-          ),
-          title: const Text("Title"),
-          subtitle: const Text("Subtitile"),
-        ),
-      ),
+      itemBuilder: (context, index) {
+        final place = tourismPlaceList[index];
+        return Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
+            child: listCard(context, place)
+        );
+      }
     );
   }
+}
+
+Widget listCard(BuildContext context, TourismPlace place) {
+  return Container(
+    height: 250,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.blueAccent,
+      image: DecorationImage(
+          image: NetworkImage(place.imageUrls[1]),
+          fit: BoxFit.cover),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: blurredSection(context, place),
+    ),
+  );
+}
+
+Widget blurredSection(BuildContext context, TourismPlace place) {
+  return Align(
+    alignment: Alignment.bottomCenter,
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        child:
+        Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 7,
+                sigmaY: 7,
+              ),
+              child: Container(
+                height: 70,
+                width: 360,
+              ),
+            ),
+            Container(
+              height: 70,
+              width: 360,
+              decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.25),
+                    )
+                  ],
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white.withOpacity(0.5),
+                      Colors.white.withOpacity(0.2)
+                    ],
+                    stops: const [0.0, 1.0],
+                  ),
+                  borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 4),
+                child: Row(
+                  children: [
+                    Expanded(child:
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(place.name),
+                          Text(place.location),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 30,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xffF18265),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              "Detail",
+                              style: TextStyle(
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }

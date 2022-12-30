@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.riyaldi.tempat_wisata">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
         android:label="tempat_wisata"
         android:name="${applicationName}"
