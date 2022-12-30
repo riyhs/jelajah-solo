@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.blueAccent,
         image: DecorationImage(
-            image: AssetImage("assets/images/cloudySky.jpg"),
+            image: AssetImage("assets/images/cloudySky2.jpg"),
             fit: BoxFit.cover),
       ),
       alignment: Alignment.centerLeft,
