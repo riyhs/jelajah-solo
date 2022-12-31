@@ -45,7 +45,7 @@ class DetailPage extends StatelessWidget {
           appBarColor: Colors.black,
         );
     },
-      maximumSize: const Size(400.0, 812.0),
+      maximumSize: const Size(450.0, 812.0),
       backgroundColor: Colors.grey,
     );
   }
