@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => const MaterialApp(
-    title: "Draggable Home",
-    home: HomePage(),
+  Widget build(BuildContext context) => MaterialApp(
+    title: "Jelajah Kota Solo",
+    theme: ThemeData(fontFamily: 'Inter'),
+    home: const HomePage(),
   );
 }
 
@@ -23,9 +24,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      title: const Text("Draggable Home"),
+      title: const Text("Jelajah Kota Solo"),
       headerWidget: headerWidget(context),
       body: [
+        Container(
+          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 16.0),
+          alignment: Alignment.centerLeft,
+          child: const Text(
+            "Tempat Rekomendasi",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
+            ),
+            textAlign: TextAlign.start,
+          ),
+        ),
         listView(),
       ],
       fullyStretchable: false,
@@ -47,14 +61,15 @@ Widget headerWidget(BuildContext context) {
       ),
     ),
     alignment: Alignment.centerLeft,
-    child: Padding(
-      padding: const EdgeInsets.all(24.0),
+    child: const Padding(
+      padding: EdgeInsets.all(24.0),
       child: Text(
-        "Ojo Lali Hiling",
-        style: Theme.of(context)
-            .textTheme
-            .headline4!
-            .copyWith(color: Colors.white),
+        "Jelajah Kota Solo",
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 42,
+          color: Colors.white,
+        ),
       ),
     ),
   );
@@ -103,8 +118,8 @@ Widget blurredSection(BuildContext context, TourismPlace place) {
         children: [
           BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: 7,
-              sigmaY: 7,
+              sigmaX: 8,
+              sigmaY: 8,
             ),
             child: const SizedBox(
               height: 70,
@@ -112,7 +127,7 @@ Widget blurredSection(BuildContext context, TourismPlace place) {
             ),
           ),
           Container(
-            height: 70,
+            height: 75,
             width: 360,
             decoration: BoxDecoration(
               boxShadow: [
@@ -122,7 +137,7 @@ Widget blurredSection(BuildContext context, TourismPlace place) {
               ],
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.5),
+                  Colors.white.withOpacity(0.6),
                   Colors.white.withOpacity(0.2)
                 ],
                 stops: const [0.0, 1.0],
@@ -135,13 +150,30 @@ Widget blurredSection(BuildContext context, TourismPlace place) {
                 // === Content ===
                 children: [
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(place.name),
-                        Text(place.location),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            place.name,
+                            style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black
+                            ),
+                          ),
+                          const SizedBox(height: 4,),
+                          Text(
+                            place.location,
+                            style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Column(
@@ -164,12 +196,12 @@ Widget blurredSection(BuildContext context, TourismPlace place) {
 
 Widget detailButton(BuildContext context, int id) {
   return SizedBox(
-    height: 30,
+    height: 36,
     child: TextButton(
       style: TextButton.styleFrom(
         backgroundColor: Colors.black87,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
         ),
       ),
       onPressed: () {
@@ -183,7 +215,7 @@ Widget detailButton(BuildContext context, int id) {
       child: const Text(
         "Detail",
         style: TextStyle(
-          color: Color(0xffffffff),
+          color: Colors.white,
         ),
       ),
     ),

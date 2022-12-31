@@ -62,10 +62,11 @@ Widget headerWidget(BuildContext context, TourismPlace place) {
       padding: const EdgeInsets.all(24.0),
       child: Text(
         place.name,
-        style: Theme.of(context)
-            .textTheme
-            .headline4!
-            .copyWith(color: Colors.white),
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 42,
+          color: Colors.white,
+        ),
       ),
     ),
   );
@@ -74,7 +75,7 @@ Widget headerWidget(BuildContext context, TourismPlace place) {
 Widget detailPlace(BuildContext context, TourismPlace place) {
   return SizedBox(
     child: Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 32.0),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -98,17 +99,21 @@ Widget topDetailSection(TourismPlace place) {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(place.name),
-            Text(place.location),
+            Text(
+              place.name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8,),
+            Text(
+              place.location,
+              style: const TextStyle(fontSize: 16),
+            ),
           ],
         ),
-      ),
-      Column(
-        children: [
-          const Text(""),
-          Text(place.ticketPrice),
-        ],
-      ),
+      )
     ],
   );
 }
@@ -123,14 +128,57 @@ Widget cardDetailSection(TourismPlace place) {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.25),
+                color: Colors.blue.withOpacity(0.30),
               )
             ],
             borderRadius: BorderRadius.circular(24),
           ),
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Text("test"),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Rating",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black87
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        place.rating.toString(),
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        place.ticketPrice,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -142,8 +190,22 @@ Widget aboutDetailSection(TourismPlace place) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const Text("Deskripsi"),
-      Text(place.description),
+      const Text(
+        "Deskripsi",
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.black87,
+        ),
+      ),
+      const SizedBox(height: 8,),
+      Text(
+        place.description,
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.black54,
+        ),
+      ),
     ],
   );
 }
