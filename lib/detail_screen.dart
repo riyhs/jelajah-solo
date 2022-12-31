@@ -139,7 +139,7 @@ Widget cardDetailSection(TourismPlace place) {
                 color: Colors.blueAccent.withOpacity(0.40),
               )
             ],
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -267,7 +267,7 @@ Widget imageSlider(TourismPlace place) {
             margin: const EdgeInsets.symmetric(horizontal: 8.0),
             decoration: BoxDecoration(
               color: Colors.blueGrey,
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: NetworkImage(place.imageUrls[i]),
                 fit: BoxFit.cover,
