@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:tempat_wisata/source.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -29,19 +28,25 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableHome(
-      title: const Text("Detail"),
-      headerWidget: headerWidget(context, place),
-      body: [
-        detailPlace(context, place),
-        const SizedBox(height: 16,),
-        imageSlider(place),
-        const SizedBox(height: 16,),
-        mapButton(context, place),
-      ],
-      fullyStretchable: false,
-      backgroundColor: Colors.white,
-      appBarColor: Colors.black,
+    return FlutterWebFrame(
+      builder: (context) {
+        return DraggableHome(
+          title: const Text("Detail"),
+          headerWidget: headerWidget(context, place),
+          body: [
+            detailPlace(context, place),
+            const SizedBox(height: 16,),
+            imageSlider(place),
+            const SizedBox(height: 16,),
+            mapButton(context, place),
+          ],
+          fullyStretchable: false,
+          backgroundColor: Colors.white,
+          appBarColor: Colors.black,
+        );
+    },
+      maximumSize: const Size(400.0, 812.0),
+      backgroundColor: Colors.grey,
     );
   }
 }
@@ -109,7 +114,10 @@ Widget topDetailSection(TourismPlace place) {
             const SizedBox(height: 8,),
             Text(
               place.location,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              ),
             ),
           ],
         ),
@@ -128,7 +136,7 @@ Widget cardDetailSection(TourismPlace place) {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.blue.withOpacity(0.30),
+                color: Colors.blueAccent.withOpacity(0.40),
               )
             ],
             borderRadius: BorderRadius.circular(24),
@@ -150,13 +158,24 @@ Widget cardDetailSection(TourismPlace place) {
                         ),
                       ),
                       const SizedBox(height: 2),
-                      Text(
-                        place.rating.toString(),
-                        style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black87
-                        ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.star,
+                            color: Colors.yellowAccent,
+                            size: 18.0,
+                            semanticLabel: 'Rating star',
+                          ),
+                          const SizedBox(width: 4,),
+                          Text(
+                            place.rating.toString(),
+                            style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black87
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -170,8 +189,8 @@ Widget cardDetailSection(TourismPlace place) {
                         place.ticketPrice,
                         style: const TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue
+                            fontWeight: FontWeight.w800,
+                            color: Colors.blueAccent
                         ),
                       ),
                     ],

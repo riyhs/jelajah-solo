@@ -128,9 +128,9 @@ var tourismPlaceList = [
     ticketPrice: '25.000',
     imageAsset: 'images/Waduk_Cengklik.jpg',
     imageUrls: [
-      'https://garuda.industry.co.id/uploads/berita/detail/48841.jpg',
       'https://cdn-2.tstatic.net/travel/foto/bank/images/waduk-cengklik-park-di-boyolali-1.jpg',
       'https://asset.kompas.com/crops/dMEa6zu7tyxXXrQLzoKR5pW_5do=/0x0:780x520/750x500/data/photo/2019/06/20/3151082006.jpg',
+      'https://garuda.industry.co.id/uploads/berita/detail/48841.jpg',
     ],
     mapUrl: "https://goo.gl/maps/MMS9WNSd2U64Tqpu5",
     rating: 4.3,

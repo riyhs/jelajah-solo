@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:tempat_wisata/source.dart';
+import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'detail_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -23,28 +24,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableHome(
-      title: const Text("Jelajah Kota Solo"),
-      headerWidget: headerWidget(context),
-      body: [
-        Container(
-          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 16.0),
-          alignment: Alignment.centerLeft,
-          child: const Text(
-            "Tempat Rekomendasi",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: Colors.black87,
+    return FlutterWebFrame(
+      builder: (context) {
+      return DraggableHome(
+        title: const Text("Jelajah Kota Solo"),
+        headerWidget: headerWidget(context),
+        body: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 16.0),
+            alignment: Alignment.centerLeft,
+            child: const Text(
+              "Tempat Rekomendasi",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.start,
             ),
-            textAlign: TextAlign.start,
           ),
-        ),
-        listView(),
-      ],
-      fullyStretchable: false,
-      backgroundColor: Colors.white,
-      appBarColor: Colors.black,
+          listView(),
+        ],
+        fullyStretchable: false,
+        backgroundColor: Colors.white,
+        appBarColor: Colors.black,
+      );
+    },
+      maximumSize: const Size(400.0, 812.0),
+      backgroundColor: Colors.grey,
     );
   }
 }
