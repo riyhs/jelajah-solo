@@ -57,7 +57,7 @@ Widget headerWidget(BuildContext context) {
         fit: BoxFit.cover,
         colorFilter:
         ColorFilter.mode(Colors.black45, BlendMode.darken),
-        image: AssetImage("assets/images/cloudySky.jpg"),
+        image: AssetImage("assets/images/theTjolomadoe.jpg"),
       ),
     ),
     alignment: Alignment.centerLeft,
