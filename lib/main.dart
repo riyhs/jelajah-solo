@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
       ],
       fullyStretchable: false,
       backgroundColor: Colors.white,
-      appBarColor: Colors.teal,
+      appBarColor: Colors.black,
     );
   }
 }
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
 Widget headerWidget(BuildContext context) {
   return Container(
     decoration: const BoxDecoration(
-      color: Colors.blueAccent,
+      color: Colors.blueGrey,
       image: DecorationImage(
         fit: BoxFit.cover,
         colorFilter:
@@ -81,7 +81,7 @@ Widget listCard(BuildContext context, TourismPlace place) {
     height: 250,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
-      color: Colors.blueAccent,
+      color: Colors.blueGrey,
       image: DecorationImage(
         image: NetworkImage(place.imageUrls[1]),
         fit: BoxFit.cover

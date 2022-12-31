@@ -8,6 +8,8 @@ class TourismPlace {
   String ticketPrice;
   String imageAsset;
   List<String> imageUrls;
+  String mapUrl;
+  double rating;
 
   TourismPlace({
     required this.id,
@@ -19,6 +21,8 @@ class TourismPlace {
     required this.ticketPrice,
     required this.imageAsset,
     required this.imageUrls,
+    required this.mapUrl,
+    required this.rating,
   });
 }
 
@@ -38,6 +42,8 @@ var tourismPlaceList = [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/5a/d7/fe/kraton-surakarta-hadiningrat.jpg?w=1400&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/27/e3/91/sam-6480-largejpg.jpg?w=800&h=-1&s=1'
     ],
+    mapUrl: "https://goo.gl/maps/kx1xmaLZgef6Apii6",
+    rating: 4.6,
   ),
   TourismPlace(
     id : 1,
@@ -54,6 +60,8 @@ var tourismPlaceList = [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/28/53/8c/shadowy-wolf.jpg?w=800&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/28/53/55/arriving-at-heritage.jpg?w=800&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/ysPgV8g1Ws9LU9Dj9",
+    rating: 4.4,
   ),
   TourismPlace(
     id : 2,
@@ -63,13 +71,15 @@ var tourismPlaceList = [
     'Taman Balekambang adalah taman yang dibangun oleh KGPAA Mangkunegara VII untuk kedua putrinya, yaitu GRAy Partini dan GRAy Partinah. Selain itu, taman yang terbagi dua juga diberi nama sesuai dengan nama kedua putri, yaitu Partinah Bosch yang merupakan semacam hutan kota, dan Partini Tuin, yang merupakan kolam air.',
     openDays: 'Open Everyday',
     openTime: '07.00-17.00',
-    ticketPrice: 'Free',
+    ticketPrice: 'Gratis',
     imageAsset: 'images/Taman_Balekambang.jpg',
     imageUrls: [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/00/7d/81/taman-balekambang.jpg?w=1000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/00/7d/7b/taman-balekambang.jpg?w=1000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/00/7d/6e/taman-balekambang.jpg?w=1000&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/Uw21rs34YqeyHTzC6",
+    rating: 4.6,
   ),
   TourismPlace(
     id : 3,
@@ -79,13 +89,15 @@ var tourismPlaceList = [
     'Laweyan merupakan kawasan yang sangat terkenal sebagai pusat penghasil batik terbaik di Kota Solo dan sekitarnya. Kampung Batik Laweyan ini bahkan menjadi salah satu destinasi wisata di Solo yang paling ramai kunjungan wisatawan dari berbagai belahan dunia.',
     openDays: 'Open Everyday',
     openTime: '08:00 - 20:00',
-    ticketPrice: 'Free',
+    ticketPrice: 'Gratis',
     imageAsset: 'images/Kampoeng_Batik_Laweyan.jpg',
     imageUrls: [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/78/42/6a/img20160811093925-largejpg.jpg?w=1600&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/99/07/02/salah-satu-stand-gallery.jpg?w=2000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/78/42/6e/img20160811092508-largejpg.jpg?w=1600&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/CeZs2hNpWdo2rrMy8",
+    rating: 4.6,
   ),
   TourismPlace(
     id : 4,
@@ -102,6 +114,8 @@ var tourismPlaceList = [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/77/88/8e/wayang-orang.jpg?w=700&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/05/55/03/taman-sriwedari-kota.jpg?w=2000&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/UGKnjsAbqMNjoBq16",
+    rating: 4.2,
   ),
   TourismPlace(
     id : 5,
@@ -118,6 +132,8 @@ var tourismPlaceList = [
       'https://cdn-2.tstatic.net/travel/foto/bank/images/waduk-cengklik-park-di-boyolali-1.jpg',
       'https://asset.kompas.com/crops/dMEa6zu7tyxXXrQLzoKR5pW_5do=/0x0:780x520/750x500/data/photo/2019/06/20/3151082006.jpg',
     ],
+    mapUrl: "https://goo.gl/maps/MMS9WNSd2U64Tqpu5",
+    rating: 4.3,
   ),
   TourismPlace(
     id : 6,
@@ -134,6 +150,8 @@ var tourismPlaceList = [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/c2/c9/a2/the-lawu-park-pilihan.jpg?w=700&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/c2/c9/9f/the-lawu-park-pilihan.jpg?w=500&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/pQswbkQZ2UA92AS86",
+    rating: 4.4,
   ),
   TourismPlace(
     id : 7,
@@ -150,6 +168,8 @@ var tourismPlaceList = [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/f9/b1/6c/grojogan-sewu-waterfall.jpg?w=2000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/f9/b1/0a/grojogan-sewu-waterfall.jpg?w=2000&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/TWDmJsjs9JeMy2uW7",
+    rating: 4.5,
   ),
   TourismPlace(
     id : 8,
@@ -159,12 +179,14 @@ var tourismPlaceList = [
     'Kebun Teh Kemuning berada di area dataran tinggi sejuk karanganyar. Berlokasi tak terlalu jauh dari kota solo, area perkebunan menawarkan sensasi wisata kebun teh yang unik. Karanganyar seolah menjadi daerah “puncak”-nya Jawa Tengah. Jika di Jawa Barat ada Bogor yang sering ramai kala liburan. Kebun Teh ini memiliki pemandangan indah hijau alami dengan hamparan tanaman teh dimana-mana. Tidak hanya itu, objek wisata ini juga menyediakan berbagai wahana dan spot foto yang menarik.',
     openDays: 'Open Everyday',
     openTime: '24 hours',
-    ticketPrice: 'Free',
+    ticketPrice: 'Gratis',
     imageAsset: 'images/Kebun_Teh_Kemuning.jpg',
     imageUrls: [
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/33/c2/79/kebun-teh-kemuning.jpg?w=2000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/64/0e/46/kemuning-tea-plantation.jpg?w=1000&h=-1&s=1',
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/64/0e/3f/kemuning-tea-plantation.jpg?w=1000&h=-1&s=1',
     ],
+    mapUrl: "https://goo.gl/maps/JkyuRN94FzJRn6r88",
+    rating: 4.5,
   ),
 ];

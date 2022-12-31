@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   draggable_home: ^1.0.2
   carousel_slider: ^4.2.1
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_test:

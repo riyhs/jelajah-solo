@@ -4,6 +4,7 @@ import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:tempat_wisata/source.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.index});
@@ -35,6 +36,8 @@ class DetailPage extends StatelessWidget {
         detailPlace(context, place),
         const SizedBox(height: 16,),
         imageSlider(place),
+        const SizedBox(height: 16,),
+        mapButton(context, place),
       ],
       fullyStretchable: false,
       backgroundColor: Colors.white,
@@ -145,21 +148,27 @@ Widget aboutDetailSection(TourismPlace place) {
   );
 }
 
-Widget mapButton(BuildContext context) {
-  return SizedBox(
-    height: 30,
-    child: TextButton(
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.black87,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+Widget mapButton(BuildContext context, TourismPlace place) {
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: SizedBox(
+      width: 360,
+      height: 42,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.black87,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
         ),
-      ),
-      onPressed: () {},
-      child: const Text(
-        "Detail",
-        style: TextStyle(
-          color: Color(0xffffffff),
+        onPressed: () {
+          _launchUrl(place.mapUrl);
+        },
+        child: const Text(
+          "Buka di Google Map",
+          style: TextStyle(
+            color: Color(0xffffffff),
+          ),
         ),
       ),
     ),
@@ -188,4 +197,11 @@ Widget imageSlider(TourismPlace place) {
       );
     }).toList(),
   );
+}
+
+Future<void> _launchUrl(String mapUrl) async {
+  Uri url = Uri.parse(mapUrl);
+  if (!await launchUrl(url)) {
+    throw 'Could not launch $url';
+  }
 }
