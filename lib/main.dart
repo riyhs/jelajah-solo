@@ -83,8 +83,9 @@ Widget listCard(BuildContext context, TourismPlace place) {
       borderRadius: BorderRadius.circular(20),
       color: Colors.blueAccent,
       image: DecorationImage(
-          image: NetworkImage(place.imageUrls[1]),
-          fit: BoxFit.cover),
+        image: NetworkImage(place.imageUrls[1]),
+        fit: BoxFit.cover
+      ),
     ),
     child: Padding(
       padding: const EdgeInsets.all(12.0),

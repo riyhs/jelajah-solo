@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:tempat_wisata/source.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.index});
@@ -32,6 +33,8 @@ class DetailPage extends StatelessWidget {
       headerWidget: headerWidget(context, place),
       body: [
         detailPlace(context, place),
+        const SizedBox(height: 16,),
+        imageSlider(place),
       ],
       fullyStretchable: false,
       backgroundColor: Colors.white,
@@ -160,5 +163,29 @@ Widget mapButton(BuildContext context) {
         ),
       ),
     ),
+  );
+}
+
+Widget imageSlider(TourismPlace place) {
+  return CarouselSlider(
+    options: CarouselOptions(height: 220.0),
+    items: [0,1,2].map((i) {
+      return Builder(
+        builder: (BuildContext context) {
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.symmetric(horizontal: 8.0),
+            decoration: BoxDecoration(
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.circular(24),
+              image: DecorationImage(
+                image: NetworkImage(place.imageUrls[i]),
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
+      );
+    }).toList(),
   );
 }
