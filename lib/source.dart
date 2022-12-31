@@ -1,4 +1,5 @@
 class TourismPlace {
+  int id;
   String name;
   String location;
   String description;
@@ -9,6 +10,7 @@ class TourismPlace {
   List<String> imageUrls;
 
   TourismPlace({
+    required this.id,
     required this.name,
     required this.location,
     required this.description,
@@ -22,6 +24,7 @@ class TourismPlace {
 
 var tourismPlaceList = [
   TourismPlace(
+    id : 0,
     name: 'Keraton Kasunanan Surakarta',
     location: 'Baluwarti, Pasarkliwon',
     description:
@@ -37,6 +40,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 1,
     name: 'The Heritage Palace',
     location: 'Kartasura, Sukoharjo',
     description:
@@ -52,6 +56,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 2,
     name: 'Taman Balekambang',
     location: 'Manahan, Banjarsari',
     description:
@@ -67,6 +72,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 3,
     name: 'Kampoeng Batik Laweyan',
     location: 'Laweyan, Laweyan',
     description:
@@ -82,6 +88,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 4,
     name: 'Taman Sriwedari',
     location: 'Sriwedari, Laweyan',
     description:
@@ -97,6 +104,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 5,
     name: 'Waduk Cengklik',
     location: 'Ngemplak, Boyolali',
     description:
@@ -112,6 +120,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 6,
     name: 'The Lawu Park',
     location: 'Tawangmangu, Karanganyar',
     description:
@@ -127,6 +136,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 7,
     name: 'Grojogan Sewu',
     location: 'Tawangmangu, Karanganyar',
     description:
@@ -142,6 +152,7 @@ var tourismPlaceList = [
     ],
   ),
   TourismPlace(
+    id : 8,
     name: 'Kebun Teh Kemuning',
     location: 'Ngargoyoso, Karanganyar',
     description:
